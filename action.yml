@@ -1,0 +1,6 @@
+name: "mcmap benchmark"
+description: "Automated build and run against a pre-determined region"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
