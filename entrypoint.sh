@@ -13,7 +13,7 @@ if [[ "$?" -ne 0 ]]; then
     exit 1
 fi
 
-output=$( { time -p ./mcmap -from 0 0 -to 511 511 benchmark; } 2>&1 )
+output=$( { time -p ./mcmap -from 0 0 -to 511 511 /benchmark; } 2>&1 )
 
 if [[ "$?" -ne 0 ]]; then
     echo "Image generation error:"
