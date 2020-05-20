@@ -14,5 +14,6 @@ RUN apt install g++ make libpng-dev --yes
 
 COPY entrypoint.sh /entrypoint.sh
 COPY benchmark /benchmark
+COPY colors.json /colors.json
 
 ENTRYPOINT ["/entrypoint.sh"]
