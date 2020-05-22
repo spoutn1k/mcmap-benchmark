@@ -33,6 +33,9 @@ tests=(
     "-from -64 -64 -to 63 63 -nowater"
     "-from -64 -64 -to 63 63 -colors /colors.json"
     "-from 0 0 -to 511 511"
+    "-from 0 0 -to 63 63 -splits 4"
+    "-from 0 0 -to 15 15 -padding 0"
+    "-from 0 0 -to 15 15 -padding 48"
 )
 
 index=0
