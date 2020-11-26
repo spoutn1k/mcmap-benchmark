@@ -4,13 +4,12 @@ cd "$GITHUB_WORKSPACE" || exit 1
 
 # initialize exit code
 exit_code=0
-openmp=$(echo | cpp -fopenmp -dM | grep -i open)
 binary=./mcmap
 savefile=/benchmark
 timelog=time.log
 images=images
 
-compilation=$(make)
+compilation=$(cmake . && make)
 
 if [[ "$?" -ne 0 ]]; then
     echo "Build failed:"

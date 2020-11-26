@@ -10,7 +10,7 @@ LABEL "homepage"="https://github.com/spoutn1k/mcmap-benchmark"
 LABEL "maintainer"="spoutn1k <jb.skutnik@gmail.com>"
 
 RUN apt update
-RUN apt install g++ make libpng-dev --yes
+RUN apt install g++ make libpng-dev cmake --yes
 
 COPY entrypoint.sh /entrypoint.sh
 COPY benchmark /benchmark
