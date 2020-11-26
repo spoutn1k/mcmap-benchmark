@@ -9,11 +9,11 @@ savefile=/benchmark
 timelog=time.log
 images=images
 
-compilation=$(cmake . && make)
+cmake .
+make
 
 if [[ "$?" -ne 0 ]]; then
-    echo "Build failed:"
-    echo "$compilation"
+    echo "Build failed."
     exit 1
 fi
 
