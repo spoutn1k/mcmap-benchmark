@@ -4,7 +4,7 @@ cd "$GITHUB_WORKSPACE" || exit 1
 
 # initialize exit code
 exit_code=0
-binary=./mcmap
+binary=./bin/mcmap
 savefile=/benchmark
 timelog=time.log
 images=images
