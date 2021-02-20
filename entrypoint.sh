@@ -4,17 +4,16 @@ cd "$GITHUB_WORKSPACE" || exit 1
 
 # initialize exit code
 exit_code=0
-openmp=$(echo | cpp -fopenmp -dM | grep -i open)
-binary=./mcmap
+binary=./bin/mcmap
 savefile=/benchmark
 timelog=time.log
 images=images
 
-compilation=$(make)
+cmake .
+make
 
 if [[ "$?" -ne 0 ]]; then
-    echo "Build failed:"
-    echo "$compilation"
+    echo "Build failed."
     exit 1
 fi
 
@@ -35,7 +34,11 @@ tests=(
     "-nowater"
     "-nobeacons"
     "-colors /colors.json"
-    "-splits 4"
+    "-tile 32"
+    "-tile 64"
+    "-tile 128"
+    "-tile 256"
+    "-tile 512"
     "-from 0 0 -to 15 15 -padding 0"
     "-from 0 0 -to 15 15 -padding 48"
     "-marker 0 0 red -marker 511 511 green"
