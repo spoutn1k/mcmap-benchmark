@@ -5,12 +5,12 @@ cd "$GITHUB_WORKSPACE" || exit 1
 # initialize exit code
 exit_code=0
 binary=./bin/mcmap
-savefile=/benchmark
+savefile="$1/benchmark"
 timelog=time.log
 images=images
 
 cmake .
-make
+make -j 4 mcmap
 
 if [[ "$?" -ne 0 ]]; then
     echo "Build failed."
@@ -33,11 +33,12 @@ tests=(
     "-end"
     "-nowater"
     "-nobeacons"
-    "-colors /colors.json"
-    "-tile 32"
-    "-tile 64"
-    "-tile 128"
-    "-tile 256"
+    "-colors $1/colors.json"
+    "-fragment 32"
+    "-fragment 64"
+    "-fragment 128"
+    "-fragment 256"
+    "-fragment 512"
     "-tile 512"
     "-from 0 0 -to 15 15 -padding 0"
     "-from 0 0 -to 15 15 -padding 48"
